@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Configuration;
 
@@ -8,7 +9,7 @@ public static class ConfigurationExtensions
         where TSetting : class, new()
     {
         var sectionName = configurationSectionName ?? typeof(TSetting).Name;
-        var section = configuration.GetSectionSettings(sectionName);
+        var section = configuration.GetSectionSettings<TSetting>(sectionName);
         var settingInstance = section.GetSettingInstance<TSetting>(sectionName);
 
         return settingInstance;
@@ -37,18 +38,17 @@ public static class ConfigurationExtensions
             .AddEnvironmentVariables();
     }
 
-    private static TSetting GetSettingInstance<TSetting>(this IConfigurationSection? section, string sectionName)
+    internal static TSetting GetSettingInstance<TSetting>(this IConfigurationSection? section, string sectionName)
         where TSetting : class, new()
     {
         var settingInstance = section?.Get<TSetting>() ?? new TSetting();
-
         return settingInstance;
     }
 
-    private static IConfigurationSection? GetSectionSettings(this IConfiguration configuration, string sectionName)
+    internal static IConfigurationSection? GetSectionSettings<TSetting>(this IConfiguration configuration, string sectionName)
+        where TSetting : class, new()
     {
         var section = configuration.GetSection(sectionName);
-
         return section;
     }
 }

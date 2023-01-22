@@ -3,7 +3,7 @@
 namespace Abstractions.Fibonacci;
 
 [PublicAPI]
-public interface IFibonacciGenerator
+public interface IFibonacciGenerator<TFib> where TFib : FibonacciValueDto
 {
-    FibonacciValueDto GenerateNext(FibonacciValueDto value);
+    TFib GenerateNext(TFib value);
 }

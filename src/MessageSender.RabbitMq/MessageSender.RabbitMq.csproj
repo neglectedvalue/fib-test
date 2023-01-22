@@ -9,6 +9,7 @@
     <ItemGroup>
         <PackageReference Include="EasyNetQ" />
         <PackageReference Include="EasyNetQ.DI.Microsoft" />
+        <PackageReference Include="EasyNetQ.Serialization.NewtonsoftJson" />
         <PackageReference Include="Microsoft.Extensions.Logging" />
     </ItemGroup>
 

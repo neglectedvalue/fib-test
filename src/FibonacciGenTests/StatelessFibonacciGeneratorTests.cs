@@ -4,14 +4,14 @@ using FluentAssertions;
 
 namespace FibonacciGenTests;
 
-public class FibonacciGeneratorTests
+public class StatelessFibonacciGeneratorTests
 {
-    private readonly IFibonacciGenerator _fibonacciGenerator = new FibonacciGenerator.StatelessFibonacciGenerator();
+    private readonly IFibonacciGenerator<StatelessFibonacciValueDto> _fibonacciGenerator = new StatelessFibonacciGenerator();
 
     [Fact]
     public void FibonacciGenerator_GenerateNext_ShouldBeValid()
     {
-        FibonacciValueDto start = new FibonacciValueDto { PrevValue = 0, Value = 1, CorrelationId = Guid.NewGuid() };
+        StatelessFibonacciValueDto start = new StatelessFibonacciValueDto { PrevValue = 0, Value = 1, CorrelationId = Guid.NewGuid() };
         var first = _fibonacciGenerator.GenerateNext(start);
         first.Value.Should().Be(1);
 
@@ -35,7 +35,7 @@ public class FibonacciGeneratorTests
 
     private void Seed()
     {
-        FibonacciValueDto start = new FibonacciValueDto { PrevValue = 0, Value = 1, CorrelationId = Guid.NewGuid() };
+        StatelessFibonacciValueDto start = new StatelessFibonacciValueDto { PrevValue = 0, Value = 1, CorrelationId = Guid.NewGuid() };
         var first = _fibonacciGenerator.GenerateNext(start);
         first.Value.Should().Be(1);
 

@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.WebApi", "Fibonac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.BackgroundService", "Fibonacci.BackgroundService\Fibonacci.BackgroundService.csproj", "{82D67523-DDD4-4452-B8FD-754215953035}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageSender.HttpClient", "MessageSender.HttpClient\MessageSender.HttpClient.csproj", "{D798B228-B227-4CD8-B127-CDF9E8D190FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{82D67523-DDD4-4452-B8FD-754215953035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82D67523-DDD4-4452-B8FD-754215953035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82D67523-DDD4-4452-B8FD-754215953035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D798B228-B227-4CD8-B127-CDF9E8D190FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D798B228-B227-4CD8-B127-CDF9E8D190FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D798B228-B227-4CD8-B127-CDF9E8D190FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D798B228-B227-4CD8-B127-CDF9E8D190FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7F777CAD-CEED-49A8-A9EA-1C1BA7797A32} = {D4974D8E-883E-424B-97A0-69939F149C04}
@@ -66,5 +72,6 @@ Global
 		{5B45C217-5B38-42D7-AA70-838FCEF7EBA8} = {D4974D8E-883E-424B-97A0-69939F149C04}
 		{B14D3344-9B5D-4F70-9FBB-C142EBA18A1B} = {D4974D8E-883E-424B-97A0-69939F149C04}
 		{D2B607BF-A5DC-4163-A3C6-66AEAB416708} = {B14D3344-9B5D-4F70-9FBB-C142EBA18A1B}
+		{D798B228-B227-4CD8-B127-CDF9E8D190FE} = {D4974D8E-883E-424B-97A0-69939F149C04}
 	EndGlobalSection
 EndGlobal

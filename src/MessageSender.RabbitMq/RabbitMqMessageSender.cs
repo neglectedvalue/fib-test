@@ -20,6 +20,15 @@ public class RabbitMqMessageSender : IMessageSender
         where TMessage : FibonacciValueDto
     {
         _logger.LogInformation("Sending fibonacci message {Message}", message);
-        return _bus.PubSub.PublishAsync(message, token);
+
+        try
+        {
+            return _bus.PubSub.PublishAsync(message, token);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, e.Message);
+            throw;
+        }
     }
 }

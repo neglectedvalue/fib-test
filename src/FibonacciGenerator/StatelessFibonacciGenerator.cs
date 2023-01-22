@@ -2,8 +2,8 @@
 
 namespace FibonacciGenerator;
 
-public class StatelessFibonacciGenerator : IFibonacciGenerator
+public class StatelessFibonacciGenerator : IFibonacciGenerator<StatelessFibonacciValueDto>
 {
-    public FibonacciValueDto GenerateNext(FibonacciValueDto value)
+    public StatelessFibonacciValueDto GenerateNext(StatelessFibonacciValueDto value)
         => value with { PrevValue = value.Value, Value = value.Value + value.PrevValue};
 }

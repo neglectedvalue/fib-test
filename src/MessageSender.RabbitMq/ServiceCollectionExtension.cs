@@ -14,7 +14,5 @@ public static class ServiceCollectionExtension
     }
 
     private static string BuildRmqConnectionString(this RabbitMqSettings settings)
-    {
-        return $"host={settings.Host};username={settings.User};password={settings.Password}";
-    }
+        => $"host={settings.Host}:{settings.Port};username={settings.User};password={settings.Password}";
 }

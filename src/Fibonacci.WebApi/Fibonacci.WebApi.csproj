@@ -20,6 +20,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Abstractions\Abstractions.csproj" />
       <ProjectReference Include="..\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\FibonacciGenerator\FibonacciGenerator.csproj" />
       <ProjectReference Include="..\MessageSender.RabbitMq\MessageSender.RabbitMq.csproj" />
     </ItemGroup>
 

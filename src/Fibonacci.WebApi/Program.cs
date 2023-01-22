@@ -1,4 +1,7 @@
+using Abstractions.Fibonacci;
+using Abstractions.MessageSender;
 using Configuration;
+using FibonacciGenerator;
 using MessageSender.RabbitMq;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<IMessageSender, RabbitMqMessageSender>();
+builder.Services.AddSingleton<IFibonacciGenerator<FibonacciValueDto>, StatefulFibonacciGenerator>();
 
 builder.Configuration.AddAllSettingFiles();
 
