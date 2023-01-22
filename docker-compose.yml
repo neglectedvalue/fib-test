@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - "15672:15672"
+      - "5673:5672" # done intentionally since docker rabbit seems to listen on 5672
+      - "5672:5672"
+      - "5671:5671"
+    hostname: "fib-rabbitmq"
+    container_name: "fib-rabbit"
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin"
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - fibonacci_network
+
+networks:
+  fibonacci_network:
+    driver: bridge
