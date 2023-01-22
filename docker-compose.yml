@@ -9,15 +9,48 @@ services:
       - "5672:5672"
       - "5671:5671"
     hostname: "fib-rabbitmq"
-    container_name: "fib-rabbit"
+    container_name: fib-rabbit
     environment:
       RABBITMQ_DEFAULT_USER: "admin"
       RABBITMQ_DEFAULT_PASS: "admin"
     volumes:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-    networks:
-        - fibonacci_network
+
+  webapi-srv:
+    container_name: fib-webapi
+    build:
+      context: /src
+      dockerfile: /Fibonacci.WebApi/Dockerfile
+    environment:
+      RabbitMqSettings__Host: "rabbit"
+      RabbitMqSettings__Port: 5672
+      RabbitMqSettings__User: "admin"
+      RabbitMqSettings__Password: "admin"
+    depends_on:
+      - rabbit
+
+  background-srv:
+    container_name: fib-background
+    build:
+      context: /src
+      dockerfile: /Fibonacci.BackgroundService/Dockerfile
+    environment:
+      HttpClientSettings__Host: "http://webapi-srv/fibonacci/api/"
+      HttpClientSettings__MethodUrl: "calculate"
+      HttpClientSettings__HttpClientName: "FibGenClient"
+      RabbitMqSettings__Host: "rabbit"
+      RabbitMqSettings__Port: 5672
+      RabbitMqSettings__User: "admin"
+      RabbitMqSettings__Password: "admin"
+    restart: on-failure
+    command: "ls -l"
+    entrypoint: ["./wait-for-it.sh", "rabbit:5672", "-t", "40", "--", "dotnet", "Fibonacci.BackgroundService.dll"]
+    depends_on:
+      - rabbit
+      - webapi-srv
+    links: 
+        - rabbit
 
 networks:
   fibonacci_network:

@@ -21,7 +21,6 @@ public static class ServiceCollectionExtensions
         return settingInstance;
     }
 
-    [UsedImplicitly]
     public static TSetting ConfigureAndValidateSettings<TSetting, TValidator>(this IServiceCollection services, IConfiguration configuration, string? configurationSectionName = null)
             where TSetting : class, new()
             where TValidator : AbstractSettingsValidator<TSetting>, new()

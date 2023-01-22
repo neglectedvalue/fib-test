@@ -23,14 +23,14 @@
     <PackageReference Update="Microsoft.Extensions.Logging" Version="7.0.0"/>
     <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.3.2" />
     <PackageReference Update="Microsoft.Extensions.Http.Polly" Version="7.0.0" />
+    <PackageReference Update="Polly.Contrib.WaitAndRetry" Version="1.1.1" />
     <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.4.33" />
     <PackageReference Update="Moq" Version="4.18.2" />
     <PackageReference Update="MSTest.TestAdapter" Version="2.2.10" />
     <PackageReference Update="MSTest.TestFramework" Version="2.2.10" />
-    <PackageReference Update="Refit" Version="6.3.2" />
-    <PackageReference Update="EasyNetQ" Version="7.3.10" />
-    <PackageReference Update="EasyNetQ.DI.Microsoft" Version="7.3.10" />
-    <PackageReference Update="EasyNetQ.Serialization.NewtonsoftJson" Version="7.3.10" />
+    <PackageReference Update="EasyNetQ" Version="7.3.11" />
+    <PackageReference Update="EasyNetQ.DI.Microsoft" Version="7.3.11" />
+    <PackageReference Update="EasyNetQ.Serialization.SystemTextJson" Version="7.3.11" />
     <PackageReference Update="xunit" Version="2.4.2" />
     <PackageReference Update="Xunit.Combinatorial" Version="1.5.25" />
     <PackageReference Update="xunit.runner.visualstudio" Version="2.4.5" />

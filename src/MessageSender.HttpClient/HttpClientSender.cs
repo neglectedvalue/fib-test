@@ -1,8 +1,7 @@
-﻿using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Text;
+﻿using System.Net.Http.Json;
 using Abstractions.Fibonacci;
 using Abstractions.MessageSender;
+using MessageSender.HttpClient.Settings;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 

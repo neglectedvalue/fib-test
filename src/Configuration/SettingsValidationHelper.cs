@@ -9,7 +9,6 @@ public static class SettingsValidationHelper
         where TValidator : AbstractSettingsValidator<TSetting>, new()
     {
         var sectionName = settingsSectionName ?? typeof(TSetting).Name;
-
         var validatorResult = new TValidator().Validate(sectionName, settings);
 
         if (validatorResult.Failed)

@@ -13,6 +13,8 @@ FROM build AS publish
 RUN dotnet publish "Fibonacci.BackgroundService.csproj" -c Release -o /app/publish
 
 FROM base AS final
+COPY /Fibonacci.BackgroundService/wait-for-it.sh .
 WORKDIR /app
 COPY --from=publish /app/publish .
+RUN chmod +x wait-for-it.sh
 ENTRYPOINT ["dotnet", "Fibonacci.BackgroundService.dll"]

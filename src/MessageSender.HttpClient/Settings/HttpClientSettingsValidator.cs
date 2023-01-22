@@ -1,7 +1,7 @@
 ﻿using Configuration;
 using FluentValidation;
 
-namespace MessageSender.HttpClient;
+namespace MessageSender.HttpClient.Settings;
 
 public class HttpClientSettingsValidator : AbstractSettingsValidator<HttpClientSettings>
 {

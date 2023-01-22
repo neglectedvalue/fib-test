@@ -1,4 +1,6 @@
 ﻿using Configuration;
+using EasyNetQ;
+using MessageSender.RabbitMq.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,7 +11,8 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddRabbitMq(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
         var rmqSettings = configuration.GetSettings<RabbitMqSettings, RabbitMqSettingsValidator>();
-        serviceCollection.RegisterEasyNetQ(BuildRmqConnectionString(rmqSettings));
+        serviceCollection.RegisterEasyNetQ(BuildRmqConnectionString(rmqSettings),
+            act => act.EnableSystemTextJson());
         return serviceCollection;
     }
 

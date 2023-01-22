@@ -3,7 +3,7 @@ using System.Numerics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Abstractions.Fibonacci;
+namespace Abstractions.JsonConverters;
 
 public class BigIntegerJsonConverter : JsonConverter<BigInteger>
 {

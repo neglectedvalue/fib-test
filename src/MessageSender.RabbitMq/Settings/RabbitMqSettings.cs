@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace MessageSender.RabbitMq;
+namespace MessageSender.RabbitMq.Settings;
 
 [PublicAPI]
 public record RabbitMqSettings
